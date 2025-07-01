@@ -53,7 +53,7 @@ public void editTasks(List<Task> newTasks,Integer index) {
 		 selectedTask.setNameOfTask(newName);
 		 System.out.println(selectedTask.getNameOfTask());
 		 returnToTasks(newTasks);
-	 ;
+	 
 	 }
 	else if(input2.endsWith("start")) {
 		System.out.println( selectedTask.getStartDate());
@@ -62,8 +62,33 @@ public void editTasks(List<Task> newTasks,Integer index) {
 		String newStartDate=scanner.nextLine();
 		LocalDate parsedStartDate= LocalDate.parse(newStartDate);
 		 selectedTask.setStartDate(parsedStartDate);
-		 System.out.println(selectedTask.getNameOfTask());
+		 System.out.println(selectedTask.getStartDate());
+		 returnToTasks(newTasks);
+		 
 }
+	else if(input2.endsWith("end")) {
+		System.out.println( selectedTask.getDateOfCompletion());
+		System.out.println("When does this task end?");
+		
+		String newEndDate=scanner.nextLine();
+		LocalDate parsedEndDate= LocalDate.parse(newEndDate);
+		selectedTask.setDateOfCompletion(parsedEndDate);
+		System.out.println(selectedTask.getDateOfCompletion());
+		
+		returnToTasks(newTasks);
+	}
+	else if(input2.endsWith("frequency")) {
+		System.out.println( selectedTask.getFrequency());
+		System.out.println("How often does this task need done?");
+		
+		String newFrequency=scanner.nextLine();
+		Frequency.// don't know what to do here I am trying to convert an enum into a string. The class has ignoreCase
+		//which is annoying that I didn't know that before. It would have saved me a lot of hassle. 
+		selectedTask.setFrequency(newFrequency);
+		System.out.println(selectedTask.getDateOfCompletion());
+		
+		returnToTasks(newTasks);
+	}
 }
 public void returnToTasks(List<Task> newTasks) {
 	
